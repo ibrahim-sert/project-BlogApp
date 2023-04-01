@@ -44,4 +44,5 @@ export const iconTwi = {
 export const iconYou = {
   "&:hover": { transform: "scale(1.5)" },
   cursor: "pointer",
+  color: "red",
 };

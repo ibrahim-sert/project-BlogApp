@@ -12,11 +12,12 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import NavbarIcon from "../assets/avatar.png";
+import { useNavigate } from "react-router-dom";
 
 const pages = ["DASHBOARD", "NEW BLOG", "ABOUT"];
 const settings = ["My Blogs", "Profile", "Logout"];
 
-function ResponsiveAppBar() {
+const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -34,13 +35,20 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const navigate = useNavigate();
 
   return (
     <AppBar sx={{ bgcolor: "red" }} position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box
-            sx={{ display: { xs: "none", md: "flex" }, mr: 1, height: "55px" }}
+            onClick={() => navigate("/")}
+            sx={{
+              cursor: "pointer",
+              display: { xs: "none", md: "flex" },
+              mr: 1,
+              height: "55px",
+            }}
           >
             <img src={NavbarIcon} alt="" />
           </Box>
@@ -88,15 +96,25 @@ function ResponsiveAppBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem onClick={() => navigate("/")}>
+                <Typography>DASHBOARD</Typography>
+              </MenuItem>
+              <MenuItem onClick={() => navigate("/newblog")}>
+                <Typography>NEW BLOG</Typography>
+              </MenuItem>
+              <MenuItem onClick={() => navigate("/about")}>
+                <Typography>ABOUT</Typography>
+              </MenuItem>
             </Menu>
           </Box>
           <Box
-            sx={{ display: { xs: "flex", md: "none" }, mr: 1, height: "55px" }}
+            onClick={() => navigate("/")}
+            sx={{
+              cursor: "pointer",
+              display: { xs: "flex", md: "none" },
+              mr: 1,
+              height: "55px",
+            }}
           >
             <img src={NavbarIcon} alt="" />
           </Box>
@@ -118,15 +136,15 @@ function ResponsiveAppBar() {
             }}
           ></Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
+            <MenuItem onClick={() => navigate("/")}>
+              <Typography>DASHBOARD</Typography>
+            </MenuItem>
+            <MenuItem onClick={() => navigate("/newblog")}>
+              <Typography>NEW BLOG</Typography>
+            </MenuItem>
+            <MenuItem onClick={() => navigate("/about")}>
+              <Typography>ABOUT</Typography>
+            </MenuItem>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
@@ -161,5 +179,5 @@ function ResponsiveAppBar() {
       </Container>
     </AppBar>
   );
-}
-export default ResponsiveAppBar;
+};
+export default NavBar;
