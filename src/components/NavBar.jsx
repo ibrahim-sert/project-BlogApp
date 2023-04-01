@@ -96,13 +96,28 @@ const NavBar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              <MenuItem onClick={() => navigate("/")}>
+              <MenuItem
+                onClick={() => {
+                  navigate("/");
+                  handleCloseNavMenu();
+                }}
+              >
                 <Typography>DASHBOARD</Typography>
               </MenuItem>
-              <MenuItem onClick={() => navigate("/newblog")}>
+              <MenuItem
+                onClick={() => {
+                  navigate("/newblog");
+                  handleCloseNavMenu();
+                }}
+              >
                 <Typography>NEW BLOG</Typography>
               </MenuItem>
-              <MenuItem onClick={() => navigate("/about")}>
+              <MenuItem
+                onClick={() => {
+                  navigate("/about");
+                  handleCloseNavMenu();
+                }}
+              >
                 <Typography>ABOUT</Typography>
               </MenuItem>
             </Menu>
