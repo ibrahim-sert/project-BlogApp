@@ -15,6 +15,7 @@ import {
   iconsBtn,
 } from "../styles/globalStyles";
 import { red } from "@mui/material/colors";
+import { Link } from "react-router-dom";
 const About = () => {
   return (
     <Box
@@ -37,11 +38,22 @@ const About = () => {
         <Typography sx={{ fontSize: "2rem" }}>Abraham's</Typography>
         <Typography sx={{ fontSize: "2rem" }}>Our Team 💪</Typography>
         <Box sx={iconsBtn}>
-          <LinkedInIcon sx={iconLi} />
-          <GitHubIcon sx={iconGi} />
-          <InstagramIcon sx={iconIns} />
-          <TwitterIcon sx={iconTwi} />
-          <YouTubeIcon sx={iconYou} />
+          <Link target="blank" to="https://www.linkedin.com/in/sert-ibrahim/">
+            <LinkedInIcon sx={iconLi} />
+          </Link>
+          <Link target="blank" to="https://github.com/ibrahim-sert">
+            <GitHubIcon sx={iconGi} />
+          </Link>
+          <Link target="blank" to="https://www.instagram.com/">
+            {" "}
+            <InstagramIcon sx={iconIns} />
+          </Link>
+          <Link target="blank" to="https://twitter.com/">
+            <TwitterIcon sx={iconTwi} />
+          </Link>
+          <Link target="blank" to="https://www.youtube.com">
+            <YouTubeIcon sx={iconYou} />
+          </Link>
         </Box>
       </Paper>
     </Box>
