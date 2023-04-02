@@ -9,10 +9,10 @@ export const registerSchema = object({
   username: string()
     .max(10, "Kullanıcı adı 10 karakterden az olmalıdır.")
     .required(),
-  first_name: string().max(20, "İsim 20 karakterden az olmalıdır.").required(),
-  last_name: string()
-    .max(20, "Soyisim 30 karakterden az olmalıdır.")
-    .required(),
+  // first_name: string().max(20, "İsim 20 karakterden az olmalıdır.").required(),
+  // last_name: string()
+  //   .max(20, "Soyisim 30 karakterden az olmalıdır.")
+  //   .required(),
 
   email: string().email().required(),
   password: string()
@@ -33,7 +33,7 @@ const SignUpForm = ({ values, handleChange, errors, touched, handleBlur }) => {
           <TextField
             label="User Name"
             name="username"
-            id="userName"
+            id="username"
             type="text"
             variant="standard"
             value={values.username}
@@ -41,30 +41,6 @@ const SignUpForm = ({ values, handleChange, errors, touched, handleBlur }) => {
             onBlur={handleBlur}
             helperText={touched.username && errors.username}
             error={touched.username && Boolean(errors.username)}
-          />
-          <TextField
-            label="First Name"
-            name="first_name"
-            id="firstName"
-            type="text"
-            variant="standard"
-            value={values.first_name}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            helperText={touched.first_name && errors.first_name}
-            error={touched.first_name && Boolean(errors.first_name)}
-          />
-          <TextField
-            label="Last Name"
-            name="last_name"
-            id="last_name"
-            type="text"
-            variant="standard"
-            value={values.last_name}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            helperText={touched.last_name && errors.last_name}
-            error={touched.last_name && Boolean(errors.last_name)}
           />
           <TextField
             label="Email"
@@ -79,7 +55,31 @@ const SignUpForm = ({ values, handleChange, errors, touched, handleBlur }) => {
             error={touched.email && Boolean(errors.email)}
           />
           <TextField
-            label="password"
+            label="Image"
+            name="image"
+            id="image"
+            type="url"
+            variant="standard"
+            value={values.image}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            helperText={touched.image && errors.image}
+            error={touched.image && Boolean(errors.image)}
+          />
+          <TextField
+            label="Bio"
+            name="bio"
+            id="bio"
+            type="text"
+            variant="standard"
+            value={values.bio}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            helperText={touched.bio && errors.bio}
+            error={touched.bio && Boolean(errors.bio)}
+          />
+          <TextField
+            label="Password"
             name="password"
             id="password"
             type="password"

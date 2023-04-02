@@ -8,12 +8,12 @@ import Container from "@mui/material/Container";
 
 import image from "../assets/img.png";
 import { Formik } from "formik";
-import LoginForm from "../components/auth/LoginForm";
-// import useAuthCall from "../hooks/useAuthCall";
+import LoginForm, { loginSchema } from "../components/auth/LoginForm";
+import useAuthCalls from "../hooks/useAuthCalls";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-  //   const { login } = useAuthCall();
+  const { login } = useAuthCalls();
 
   return (
     <Container maxWidth="lg">
@@ -49,9 +49,9 @@ const Login = () => {
 
           <Formik
             initialValues={{ email: "", password: "" }}
-            // validationSchema={loginSchema}
+            validationSchema={loginSchema}
             onSubmit={(values, actions) => {
-              //   login(values);
+              login(values);
               actions.resetForm();
               actions.setSubmitting(false);
             }}

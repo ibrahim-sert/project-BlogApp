@@ -5,14 +5,14 @@ import LockIcon from "@mui/icons-material/Lock";
 import { Formik } from "formik";
 import image from "../assets/img.png";
 import Grid from "@mui/material/Grid";
-import RegisterForm from "../components/auth/RegisterForm";
+import RegisterForm, { registerSchema } from "../components/auth/RegisterForm";
 import { Link } from "react-router-dom";
 import { Box } from "@mui/material";
 
-// import useAuthCall from "../hooks/useAuthCall";
+import useAuthCalls from "../hooks/useAuthCalls";
 
 const Register = () => {
-  // const { register } = useAuthCall();
+  const { register } = useAuthCalls();
 
   return (
     <Container
@@ -51,14 +51,14 @@ const Register = () => {
           <Formik
             initialValues={{
               username: "",
-              first_name: "",
-              last_name: "",
               email: "",
+              image: "",
+              bio: "",
               password: "",
             }}
-            // validationSchema={registerSchema}
+            validationSchema={registerSchema}
             onSubmit={(values, actions) => {
-              // register({ ...values, password2: values.password });
+              register({ ...values, password2: values.password });
               actions.resetForm();
               actions.setSubmitting(false);
             }}
