@@ -7,6 +7,13 @@ export const btnStyle = {
   "&:hover": { color: "red", bgcolor: grey[400] },
 };
 
+export const cardStyle = {
+  cursor: "pointer",
+  maxWidth: 345,
+  boxShadow:
+    "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
+};
+
 export const flex = {
   display: "flex",
   justifyContent: "center",
@@ -14,6 +21,14 @@ export const flex = {
   flexDirection: "column",
   gap: 2,
   color: "red",
+};
+
+export const flexCard = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: 2,
+  mt: "1rem",
 };
 
 export const iconsBtn = {
@@ -45,4 +60,23 @@ export const iconYou = {
   "&:hover": { transform: "scale(1.5)" },
   cursor: "pointer",
   color: "red",
+};
+
+export const cardButton = {
+  display: "flex",
+  justifyContent: "space-between",
+};
+
+export const iconStyle = {
+  display: "flex",
+  justifyContent: "space-around",
+  gap: 2,
+  fontSize: "1.5rem",
+};
+
+export const btnDetail = {
+  color: "black",
+  bgcolor: red[200],
+
+  "&:hover": { color: "white", bgcolor: "red" },
 };
