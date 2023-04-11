@@ -1,7 +1,19 @@
-import React from "react";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
 const useAxios = () => {
-  return <div>useAxios</div>;
+  const { token } = useSelector((state) => state.auth);
+
+  const axiosPublic = axios.create({
+    baseURL: "https://32271.fullstack.clarusway.com/",
+  });
+
+  const axiosWithToken = axios.create({
+    baseURL: "https://32271.fullstack.clarusway.com/",
+    headers: { Authorization: `Token ${token}` },
+  });
+
+  return { axiosWithToken, axiosPublic };
 };
 
 export default useAxios;

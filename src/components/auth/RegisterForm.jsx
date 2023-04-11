@@ -25,7 +25,13 @@ export const registerSchema = object({
     .matches(/[!,?{}><%&$#£+-.]+/, "Password bir özel karakter içermelidir"),
 });
 
-const SignUpForm = ({ values, handleChange, errors, touched, handleBlur }) => {
+const RegisterForm = ({
+  values,
+  handleChange,
+  errors,
+  touched,
+  handleBlur,
+}) => {
   return (
     <div>
       <Form>
@@ -99,4 +105,4 @@ const SignUpForm = ({ values, handleChange, errors, touched, handleBlur }) => {
   );
 };
 
-export default SignUpForm;
+export default RegisterForm;

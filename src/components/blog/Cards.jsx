@@ -16,21 +16,31 @@ import MessageIcon from "@mui/icons-material/Message";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import { Box } from "@mui/material";
 import { useState } from "react";
+import { useNavigate } from "react-router";
+import useBlogCalls from "../../hooks/useBlogCalls";
 import { useSelector } from "react-redux";
 
 const Cards = ({ item }) => {
-  const [like, setLike] = useState(false);
-  const [count, setCount] = useState(0);
-  const { currentUser } = useSelector((state) => state.auth);
+  const {
+    image,
+    title,
+    content,
+    publish_date,
+    author,
+    post_views,
+    comment_count,
+    likes,
+    likes_n,
+  } = item;
+
+  const navigate = useNavigate();
+  const { myBlog } = useSelector((state) => state.blog);
+
+  const { getLike } = useBlogCalls();
+  const { id } = useSelector((state) => state.auth);
 
   const handleLike = () => {
-    if (!like) {
-      setCount(count + 1);
-      setLike(!like);
-    } else {
-      setCount(count - 1);
-      setLike(!like);
-    }
+    getLike("likes", item.id);
   };
 
   return (
@@ -41,53 +51,60 @@ const Cards = ({ item }) => {
       >
         <img
           height="150"
-          src={
-            item.image
-              ? item.image
-              : "https://www.w3schools.com/howto/img_avatar.png"
-          }
+          src={image ? image : "https://www.w3schools.com/howto/img_avatar.png"}
           alt="img"
         />
       </Typography>
       <CardContent>
         <Typography align="center" gutterBottom variant="h5" component="div">
-          {item.title}
+          {title}
         </Typography>
         <Typography
           sx={{ textAlign: "justify", minHeight: "120px" }}
           variant="body2"
           color="text.secondary"
         >
-          {item.content}
+          {content}
         </Typography>
         <Typography sx={{ my: 1, fontSize: "0.9rem" }}>
-          {item.publish_date}
+          {publish_date}
         </Typography>
         <Typography sx={{ display: "flex", alignItems: "center" }}>
           <FaceIcon />
-          {item.author}
+          {author}
         </Typography>
       </CardContent>
       <CardActions sx={cardButton}>
         <Box sx={iconStyle}>
-          <Typography
-            onClick={handleLike}
-            sx={{ display: "flex", alignItems: "center" }}
-          >
-            <ThumbUpIcon />
-            {count}
+          <Typography sx={{ display: "flex", alignItems: "center" }}>
+            <ThumbUpIcon
+              sx={{
+                color: `${
+                  likes_n?.filter((like) => like.user_id === id).length > 0
+                    ? "red"
+                    : "gray"
+                }`,
+              }}
+              onClick={handleLike}
+            />
+            {likes}
           </Typography>
 
           <Typography sx={{ display: "flex", alignItems: "center" }}>
-            <MessageIcon />2
+            <MessageIcon />
+            {comment_count}
           </Typography>
 
           <Typography sx={{ display: "flex", alignItems: "center" }}>
-            <RemoveRedEyeIcon />3
+            <RemoveRedEyeIcon />
+            {post_views}
           </Typography>
         </Box>
-
-        <Button sx={btnDetail} variant="contained">
+        <Button
+          onClick={() => navigate(`/detail/${item.id}`)}
+          sx={btnDetail}
+          variant="contained"
+        >
           Read More
         </Button>
       </CardActions>

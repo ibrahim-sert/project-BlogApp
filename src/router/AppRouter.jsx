@@ -11,28 +11,38 @@ import Register from "../pages/Register";
 import NotFound from "../pages/NotFound";
 import MyBlogs from "../pages/MyBlogs";
 import Profile from "../pages/Profile";
+import Detail from "../pages/Detail";
+import { Box } from "@mui/material";
 
 const AppRouter = () => {
   return (
-    <div>
+    <Box>
       <BrowserRouter>
         <NavBar />
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/myblogs" element={<MyBlogs />} />
-          <Route path="/profile" element={<Profile />} />
 
+          <Route path="/profile" element={<PrivateRouter />}>
+            <Route path="" element={<Profile />} />
+          </Route>
           <Route path="/" element={<Dashboard />} />
+
           <Route path="/new-blog" element={<PrivateRouter />}>
             <Route path="" element={<NewBlog />} />
+          </Route>
+          <Route path="/myblogs" element={<PrivateRouter />}>
+            <Route path="" element={<MyBlogs />} />
+          </Route>
+          <Route path="/detail/:id" element={<PrivateRouter />}>
+            <Route path="" element={<Detail />} />
           </Route>
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </BrowserRouter>
-    </div>
+    </Box>
   );
 };
 

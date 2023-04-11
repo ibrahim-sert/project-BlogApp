@@ -1,7 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
+import useBlogCalls from "../hooks/useBlogCalls";
+import { useSelector } from "react-redux";
+import { Card, Grid } from "@mui/material";
+import { flexCard } from "../styles/globalStyles";
+import Cards from "../components/blog/Cards";
 
 const MyBlogs = () => {
-  return <div>MyBlogs</div>;
+  const { getMyBlogData } = useBlogCalls();
+  const { myBlog } = useSelector((state) => state.blog);
+  const { id } = useSelector((state) => state.auth);
+  // console.log(id);
+  useEffect(() => {
+    getMyBlogData("blogs", id);
+  }, []);
+
+  return (
+    <>
+      <Grid container sx={flexCard}>
+        {myBlog?.map((item) => (
+          <Grid item key={item.id}>
+            {<Cards item={item} />}
+          </Grid>
+        ))}
+      </Grid>
+    </>
+  );
 };
 
 export default MyBlogs;

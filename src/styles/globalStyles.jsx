@@ -7,6 +7,11 @@ export const btnStyle = {
   "&:hover": { color: "red", bgcolor: grey[400] },
 };
 
+export const CardBlog = {
+  display: "flex",
+  flexDirection: "column",
+};
+
 export const cardStyle = {
   cursor: "pointer",
   maxWidth: 345,
@@ -64,7 +69,8 @@ export const iconYou = {
 
 export const cardButton = {
   display: "flex",
-  justifyContent: "space-between",
+  justifyContent: "center",
+  gap: 4,
 };
 
 export const iconStyle = {
@@ -72,6 +78,8 @@ export const iconStyle = {
   justifyContent: "space-around",
   gap: 2,
   fontSize: "1.5rem",
+  width: 100,
+  m: 2,
 };
 
 export const btnDetail = {

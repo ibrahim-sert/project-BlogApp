@@ -111,7 +111,7 @@ const NavBar = () => {
               </MenuItem>
               <MenuItem
                 onClick={() => {
-                  navigate("/login");
+                  navigate("/new-blog");
                   handleCloseNavMenu();
                 }}
               >

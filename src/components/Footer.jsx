@@ -1,19 +1,20 @@
 import { Box, Typography } from "@mui/material";
 
 const Footer = () => {
+  const styles = {
+    width: "100%",
+    height: "10vh",
+    padding: "5px",
+    color: "black",
+    bgcolor: "primary.main",
+    textAlign: "center",
+    marginTop: "20px",
+    bgcolor: "red",
+    fontSize: "bold",
+  };
   return (
-    <Box
-      sx={{
-        p: 2,
-        position: "fixed",
-        textAlign: "center",
-        bottom: 0,
-        bgcolor: "red",
-        color: "white",
-        width: "100%",
-      }}
-    >
-      <Typography>Developed by Abrahams Team</Typography>
+    <Box sx={styles}>
+      <Typography p={1}>Developed by Abrahams Team</Typography>
       <Typography>
         Copyright ©{" "}
         <a target="blank" href="https://github.com/ibrahim-sert">
