@@ -14,13 +14,12 @@ import {
   iconYou,
   iconsBtn,
 } from "../styles/globalStyles";
-import { red } from "@mui/material/colors";
 import { Link } from "react-router-dom";
 const About = () => {
   return (
     <Box
       sx={{
-        mt: 5,
+        m: 8.45,
         justifyContent: "center",
         alignItems: "center",
         display: "flex",

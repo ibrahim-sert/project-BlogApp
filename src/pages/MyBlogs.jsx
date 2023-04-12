@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import useBlogCalls from "../hooks/useBlogCalls";
 import { useSelector } from "react-redux";
-import { Card, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import { flexCard } from "../styles/globalStyles";
 import Cards from "../components/blog/Cards";
 
@@ -9,7 +9,6 @@ const MyBlogs = () => {
   const { getMyBlogData } = useBlogCalls();
   const { myBlog } = useSelector((state) => state.blog);
   const { id } = useSelector((state) => state.auth);
-  // console.log(id);
   useEffect(() => {
     getMyBlogData("blogs", id);
   }, []);

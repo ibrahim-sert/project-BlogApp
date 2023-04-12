@@ -15,7 +15,7 @@ import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import MessageIcon from "@mui/icons-material/Message";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import { Box } from "@mui/material";
-import { useState } from "react";
+
 import { useNavigate } from "react-router";
 import useBlogCalls from "../../hooks/useBlogCalls";
 import { useSelector } from "react-redux";
@@ -34,8 +34,6 @@ const Cards = ({ item }) => {
   } = item;
 
   const navigate = useNavigate();
-  const { myBlog } = useSelector((state) => state.blog);
-
   const { getLike } = useBlogCalls();
   const { id } = useSelector((state) => state.auth);
 

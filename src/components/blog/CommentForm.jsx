@@ -2,7 +2,6 @@ import * as React from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import Divider from "@mui/material/Divider";
 import { Typography } from "@mui/material";
 
 export default function CommentForm({ comments }) {

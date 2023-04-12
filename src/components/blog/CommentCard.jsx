@@ -56,7 +56,6 @@ const CommentCard = ({
 
   const handleDelete = () => {
     deleteData("blogs", id);
-    console.log(id);
   };
 
   const handleSubmit = (e) => {
@@ -65,8 +64,7 @@ const CommentCard = ({
       ...info,
       post: id,
     });
-
-    setInfo({});
+    setInfo({ post: "", comment: "" });
   };
 
   return (
@@ -158,7 +156,6 @@ const CommentCard = ({
                 sx={{
                   display: "flex",
                   flexDirection: "column",
-
                   width: 800,
                   gap: 4,
                 }}

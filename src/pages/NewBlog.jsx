@@ -14,7 +14,6 @@ const initialState = {
 const NewBlog = () => {
   const { postBlog } = useBlogCalls();
   const [formData, setformData] = useState(initialState);
-  // console.log(formData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,7 +27,7 @@ const NewBlog = () => {
   };
 
   return (
-    <>
+    <Box mt={75}>
       <Box>
         <title>BlogApp - New Blog</title>
       </Box>
@@ -38,7 +37,7 @@ const NewBlog = () => {
         handleSubmit={handleSubmit}
         text="New"
       />
-    </>
+    </Box>
   );
 };
 

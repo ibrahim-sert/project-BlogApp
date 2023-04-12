@@ -10,20 +10,13 @@ const Detail = () => {
   const { details } = useSelector((state) => state.blog);
   const [showComment, setShowComment] = useState(false);
   const [open, setOpen] = useState(false);
-  const [openDelete, setOpenDelete] = useState(false);
+
   const handleOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
   };
-  const handleOpenDelete = () => {
-    setOpenDelete(true);
-  };
-  const handleCloseDelete = () => {
-    setOpenDelete(false);
-  };
-
   const { id } = useParams();
 
   useEffect(() => {
@@ -32,14 +25,11 @@ const Detail = () => {
   }, []);
 
   return (
-    <Box>
+    <Box mt={10}>
       <CommentCard
-        setOpen={setOpen}
         open={open}
         handleOpen={handleOpen}
         handleClose={handleClose}
-        handleOpenDelete={handleOpenDelete}
-        handleCloseDelete={handleCloseDelete}
         details={details}
         showComment={showComment}
         setShowComment={setShowComment}
